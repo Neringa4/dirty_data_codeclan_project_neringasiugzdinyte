@@ -1,0 +1,13 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+decathlon_data <- read_csv("clean_data/decathlon_data.csv")
+```
+
