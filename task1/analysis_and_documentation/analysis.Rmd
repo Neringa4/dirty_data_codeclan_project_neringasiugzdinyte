@@ -11,3 +11,10 @@ library(tidyverse)
 decathlon_data <- read_csv("clean_data/decathlon_data.csv")
 ```
 
+1. Who had the longest long jump seen in the data?
+
+```{r}
+decathlon_data %>% 
+  slice_max(long_jump, n = 1)
+```
+

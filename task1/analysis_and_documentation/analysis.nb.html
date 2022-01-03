@@ -217,9 +217,6 @@ pre code {
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -229,9 +226,20 @@ pre code {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<ol style="list-style-type: decimal">
+<li>Who had the longest long jump seen in the data?</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGVjYXRobG9uX2RhdGEgJT4lIFxuICBzbGljZV9tYXgobG9uZ19qdW1wLCBuID0gMSlcbmBgYCJ9 -->
+<pre class="r"><code>decathlon_data %&gt;% 
+  slice_max(long_jump, n = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvZGVjYXRobG9uX2RhdGEuY3N2IikNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvZGVjYXRobG9uX2RhdGEuY3N2IikNCmBgYA0KDQoxLiBXaG8gaGFkIHRoZSBsb25nZXN0IGxvbmcganVtcCBzZWVuIGluIHRoZSBkYXRhPw0KDQpgYGB7cn0NCmRlY2F0aGxvbl9kYXRhICU+JSANCiAgc2xpY2VfbWF4KGxvbmdfanVtcCwgbiA9IDEpDQpgYGANCg0K</div>
 
 
 
