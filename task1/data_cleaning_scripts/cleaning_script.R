@@ -10,5 +10,6 @@ clean_names_decathlon <- raw_decathlon_data %>%
 
 
 athlete_names_decathlon <- clean_names_decathlon %>% 
-  rownames_to_column("athlete_name")
-  
+  rownames_to_column("athlete_name") %>% 
+  mutate(athlete_name = str_to_title(athlete_name)) %>% 
+  mutate(athlete_name = str_replace(athlete_name, "Mcmullen", "McMullen"))
