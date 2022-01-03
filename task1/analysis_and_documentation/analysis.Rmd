@@ -35,4 +35,12 @@ decathlon_data %>%
   slice_max(total_points, n = 1)
 ```
 
+4. What was the shot-put scores for the top three competitors in each competition?
+
+```{r}
+decathlon_data %>% 
+  group_by(competition) %>% 
+  slice_min(rank, n = 3) %>% 
+  select(competition, rank, athlete_name, shot_put)
+```
 
