@@ -44,3 +44,15 @@ decathlon_data %>%
   select(competition, rank, athlete_name, shot_put)
 ```
 
+5. What was the average points for competitors who ran the 400m in less than 50 
+seconds vs. those than ran 400m in more than 50 seconds?
+
+```{r}
+decathlon_data %>% 
+  mutate(time_400m = if_else(`400m` < 50, 
+                             "Less than 50s",
+                             "More than 50s")) %>% 
+  group_by(time_400m) %>% 
+  summarise(avg_points = mean(points))
+```
+
