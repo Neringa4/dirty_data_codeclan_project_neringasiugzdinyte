@@ -18,3 +18,11 @@ decathlon_data %>%
   slice_max(long_jump, n = 1)
 ```
 
+2. What was the average 100m time in each competition?
+
+```{r}
+decathlon_data %>% 
+  group_by(competition) %>% 
+  summarise(avg_100m_time = mean(`100m`))
+```
+
