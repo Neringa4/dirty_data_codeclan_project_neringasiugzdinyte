@@ -249,9 +249,22 @@ pre code {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<ol start="3" style="list-style-type: decimal">
+<li>Who had the highest total points across both competitions?</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGVjYXRobG9uX2RhdGEgJT4lIFxuICBncm91cF9ieShhdGhsZXRlX25hbWUpICU+JSBcbiAgc3VtbWFyaXNlKHRvdGFsX3BvaW50cyA9IHN1bShwb2ludHMpKSAlPiUgXG4gIHNsaWNlX21heCh0b3RhbF9wb2ludHMsIG4gPSAxKVxuYGBgIn0= -->
+<pre class="r"><code>decathlon_data %&gt;% 
+  group_by(athlete_name) %&gt;% 
+  summarise(total_points = sum(points)) %&gt;% 
+  slice_max(total_points, n = 1)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvZGVjYXRobG9uX2RhdGEuY3N2IikNCmBgYA0KDQoxLiBXaG8gaGFkIHRoZSBsb25nZXN0IGxvbmcganVtcCBzZWVuIGluIHRoZSBkYXRhPw0KDQpgYGB7cn0NCmRlY2F0aGxvbl9kYXRhICU+JSANCiAgc2xpY2VfbWF4KGxvbmdfanVtcCwgbiA9IDEpDQpgYGANCg0KMi4gV2hhdCB3YXMgdGhlIGF2ZXJhZ2UgMTAwbSB0aW1lIGluIGVhY2ggY29tcGV0aXRpb24/DQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgJT4lIA0KICBncm91cF9ieShjb21wZXRpdGlvbikgJT4lIA0KICBzdW1tYXJpc2UoYXZnXzEwMG1fdGltZSA9IG1lYW4oYDEwMG1gKSkNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvZGVjYXRobG9uX2RhdGEuY3N2IikNCmBgYA0KDQoxLiBXaG8gaGFkIHRoZSBsb25nZXN0IGxvbmcganVtcCBzZWVuIGluIHRoZSBkYXRhPw0KDQpgYGB7cn0NCmRlY2F0aGxvbl9kYXRhICU+JSANCiAgc2xpY2VfbWF4KGxvbmdfanVtcCwgbiA9IDEpDQpgYGANCg0KMi4gV2hhdCB3YXMgdGhlIGF2ZXJhZ2UgMTAwbSB0aW1lIGluIGVhY2ggY29tcGV0aXRpb24/DQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgJT4lIA0KICBncm91cF9ieShjb21wZXRpdGlvbikgJT4lIA0KICBzdW1tYXJpc2UoYXZnXzEwMG1fdGltZSA9IG1lYW4oYDEwMG1gKSkNCmBgYA0KDQozLiBXaG8gaGFkIHRoZSBoaWdoZXN0IHRvdGFsIHBvaW50cyBhY3Jvc3MgYm90aCBjb21wZXRpdGlvbnM/DQoNCmBgYHtyfQ0KZGVjYXRobG9uX2RhdGEgJT4lIA0KICBncm91cF9ieShhdGhsZXRlX25hbWUpICU+JSANCiAgc3VtbWFyaXNlKHRvdGFsX3BvaW50cyA9IHN1bShwb2ludHMpKSAlPiUgDQogIHNsaWNlX21heCh0b3RhbF9wb2ludHMsIG4gPSAxKQ0KYGBgDQoNCg0K</div>
 
 
 

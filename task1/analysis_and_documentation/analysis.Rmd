@@ -26,3 +26,13 @@ decathlon_data %>%
   summarise(avg_100m_time = mean(`100m`))
 ```
 
+3. Who had the highest total points across both competitions?
+
+```{r}
+decathlon_data %>% 
+  group_by(athlete_name) %>% 
+  summarise(total_points = sum(points)) %>% 
+  slice_max(total_points, n = 1)
+```
+
+
