@@ -8,23 +8,27 @@ library(tidyverse)
 ```
 
 ```{r}
-decathlon_data <- read_csv("clean_data/decathlon_data.csv")
+decathlon_data <- read_csv(here::here("clean_data/decathlon_data.csv"))
 ```
+
 
 1. Who had the longest long jump seen in the data?
 
 ```{r}
 decathlon_data %>% 
-  slice_max(long_jump, n = 1)
+  slice_max(long_jump, n = 1) %>% 
+  select(athlete_name, competition, long_jump)
 ```
+
 
 2. What was the average 100m time in each competition?
 
 ```{r}
 decathlon_data %>% 
   group_by(competition) %>% 
-  summarise(avg_100m_time = mean(`100m`))
+  summarise(avg_100m_time = mean(x100m))
 ```
+
 
 3. Who had the highest total points across both competitions?
 
@@ -35,6 +39,7 @@ decathlon_data %>%
   slice_max(total_points, n = 1)
 ```
 
+
 4. What was the shot-put scores for the top three competitors in each competition?
 
 ```{r}
@@ -44,12 +49,13 @@ decathlon_data %>%
   select(competition, rank, athlete_name, shot_put)
 ```
 
+
 5. What was the average points for competitors who ran the 400m in less than 50 
 seconds vs. those than ran 400m in more than 50 seconds?
 
 ```{r}
 decathlon_data %>% 
-  mutate(time_400m = if_else(`400m` < 50, 
+  mutate(time_400m = if_else(x400m < 50, 
                              "Less than 50s",
                              "More than 50s")) %>% 
   group_by(time_400m) %>% 
