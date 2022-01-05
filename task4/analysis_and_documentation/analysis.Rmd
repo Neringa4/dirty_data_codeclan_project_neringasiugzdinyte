@@ -87,4 +87,28 @@ all_candy_data_numeric_rating %>%
   slice_max(rating, n = 1)
 ```
 
+
 What was the most popular candy bar by this rating for people in US, Canada, UK and all other countries?
+
+```{r}
+all_candy_data_numeric_rating %>% 
+  filter(!is.na(country)) %>% 
+  group_by(country, candy_name) %>% 
+  summarise(rating = sum(rating, na.rm = TRUE)) %>% 
+  slice_max(rating, n = 1, with_ties = FALSE)
+```
+
+```{r}
+all_candy_data_numeric_rating %>% 
+  mutate(country = if_else(country == "United States of America" | 
+                             country == "Canada" |
+                             country == "United Kingdom",
+                           country,
+                           "Other"
+                           )) %>% 
+  filter(!is.na(country)) %>% 
+  group_by(country, candy_name) %>% 
+  summarise(rating = sum(rating, na.rm = TRUE)) %>% 
+  slice_max(rating, n = 1)
+```
+
