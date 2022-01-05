@@ -15,3 +15,8 @@ all_candy_data_fix_going_out <- all_candy_data %>%
                                      FALSE,
                                      NA)))
 
+
+all_candy_data_fix_gender <- all_candy_data_fix_going_out %>% 
+  mutate(gender = na_if(gender, "I'd rather not say"))
+
+
