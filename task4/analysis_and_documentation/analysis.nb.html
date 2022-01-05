@@ -235,11 +235,22 @@ pre code {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>What was the average age of people who are going out trick or treating and the average age of people not going trick or treating? For each of joy, despair and meh, which candy bar received the most of these ratings? How many people rated Starburst as despair? For the next three questions, count despair as -1, joy as +1 and meh as 0.</p>
+<p>What was the average age of people who are going out trick or treating and the average age of people not going trick or treating?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYWxsX2NhbmR5X2RhdGEgJT4lIFxuICBmaWx0ZXIoIWlzLm5hKGdvaW5nX291dCkpICU+JSBcbiAgZ3JvdXBfYnkoZ29pbmdfb3V0KSAlPiUgXG4gIHN1bW1hcmlzZShhdmdfYWdlID0gbWVhbihhZ2UsIG5hLnJtID0gVFJVRSkpXG5gYGAifQ== -->
+<pre class="r"><code>all_candy_data %&gt;% 
+  filter(!is.na(going_out)) %&gt;% 
+  group_by(going_out) %&gt;% 
+  summarise(avg_age = mean(age, na.rm = TRUE))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>For each of joy, despair and meh, which candy bar received the most of these ratings? How many people rated Starburst as despair? For the next three questions, count despair as -1, joy as +1 and meh as 0.</p>
 <p>What was the most popular candy bar by this rating system for each gender in the dataset? What was the most popular candy bar in each year? What was the most popular candy bar by this rating for people in US, Canada, UK and all other countries?</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KYWxsX2NhbmR5X2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvYWxsX2NhbmR5X2RhdGEuY3N2IikNCmBgYA0KDQoNCldoYXQgaXMgdGhlIHRvdGFsIG51bWJlciBvZiBjYW5keSByYXRpbmdzIGdpdmVuIGFjcm9zcyB0aGUgdGhyZWUgeWVhcnMuIA0KDQpgYGB7cn0NCmFsbF9jYW5keV9kYXRhICU+JSANCiAgc3VtbWFyaXNlKG51bV9yYXRpbmdzID0gc3VtKCFpcy5uYShyYXRpbmcpKSkNCmBgYA0KDQpXaGF0IHdhcyB0aGUgYXZlcmFnZSBhZ2Ugb2YgcGVvcGxlIHdobyBhcmUgZ29pbmcgb3V0IHRyaWNrIG9yIHRyZWF0aW5nIGFuZCB0aGUgYXZlcmFnZSBhZ2Ugb2YgcGVvcGxlIG5vdCBnb2luZyB0cmljayBvciB0cmVhdGluZz8NCkZvciBlYWNoIG9mIGpveSwgZGVzcGFpciBhbmQgbWVoLCB3aGljaCBjYW5keSBiYXIgcmVjZWl2ZWQgdGhlIG1vc3Qgb2YgdGhlc2UgcmF0aW5ncz8NCkhvdyBtYW55IHBlb3BsZSByYXRlZCBTdGFyYnVyc3QgYXMgZGVzcGFpcj8NCkZvciB0aGUgbmV4dCB0aHJlZSBxdWVzdGlvbnMsIGNvdW50IGRlc3BhaXIgYXMgLTEsIGpveSBhcyArMSBhbmQgbWVoIGFzIDAuDQoNCldoYXQgd2FzIHRoZSBtb3N0IHBvcHVsYXIgY2FuZHkgYmFyIGJ5IHRoaXMgcmF0aW5nIHN5c3RlbSBmb3IgZWFjaCBnZW5kZXIgaW4gdGhlIGRhdGFzZXQ/DQpXaGF0IHdhcyB0aGUgbW9zdCBwb3B1bGFyIGNhbmR5IGJhciBpbiBlYWNoIHllYXI/DQpXaGF0IHdhcyB0aGUgbW9zdCBwb3B1bGFyIGNhbmR5IGJhciBieSB0aGlzIHJhdGluZyBmb3IgcGVvcGxlIGluIFVTLCBDYW5hZGEsIFVLIGFuZCBhbGwgb3RoZXIgY291bnRyaWVzPw0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KYWxsX2NhbmR5X2RhdGEgPC0gcmVhZF9jc3YoImNsZWFuX2RhdGEvYWxsX2NhbmR5X2RhdGEuY3N2IikNCmBgYA0KDQoNCldoYXQgaXMgdGhlIHRvdGFsIG51bWJlciBvZiBjYW5keSByYXRpbmdzIGdpdmVuIGFjcm9zcyB0aGUgdGhyZWUgeWVhcnMuIA0KDQpgYGB7cn0NCmFsbF9jYW5keV9kYXRhICU+JSANCiAgc3VtbWFyaXNlKG51bV9yYXRpbmdzID0gc3VtKCFpcy5uYShyYXRpbmcpKSkNCmBgYA0KDQoNCldoYXQgd2FzIHRoZSBhdmVyYWdlIGFnZSBvZiBwZW9wbGUgd2hvIGFyZSBnb2luZyBvdXQgdHJpY2sgb3IgdHJlYXRpbmcgYW5kIHRoZSANCmF2ZXJhZ2UgYWdlIG9mIHBlb3BsZSBub3QgZ29pbmcgdHJpY2sgb3IgdHJlYXRpbmc/DQoNCmBgYHtyfQ0KYWxsX2NhbmR5X2RhdGEgJT4lIA0KICBmaWx0ZXIoIWlzLm5hKGdvaW5nX291dCkpICU+JSANCiAgZ3JvdXBfYnkoZ29pbmdfb3V0KSAlPiUgDQogIHN1bW1hcmlzZShhdmdfYWdlID0gbWVhbihhZ2UsIG5hLnJtID0gVFJVRSkpDQpgYGANCg0KRm9yIGVhY2ggb2Ygam95LCBkZXNwYWlyIGFuZCBtZWgsIHdoaWNoIGNhbmR5IGJhciByZWNlaXZlZCB0aGUgbW9zdCBvZiB0aGVzZSByYXRpbmdzPw0KSG93IG1hbnkgcGVvcGxlIHJhdGVkIFN0YXJidXJzdCBhcyBkZXNwYWlyPw0KRm9yIHRoZSBuZXh0IHRocmVlIHF1ZXN0aW9ucywgY291bnQgZGVzcGFpciBhcyAtMSwgam95IGFzICsxIGFuZCBtZWggYXMgMC4NCg0KV2hhdCB3YXMgdGhlIG1vc3QgcG9wdWxhciBjYW5keSBiYXIgYnkgdGhpcyByYXRpbmcgc3lzdGVtIGZvciBlYWNoIGdlbmRlciBpbiB0aGUgZGF0YXNldD8NCldoYXQgd2FzIHRoZSBtb3N0IHBvcHVsYXIgY2FuZHkgYmFyIGluIGVhY2ggeWVhcj8NCldoYXQgd2FzIHRoZSBtb3N0IHBvcHVsYXIgY2FuZHkgYmFyIGJ5IHRoaXMgcmF0aW5nIGZvciBwZW9wbGUgaW4gVVMsIENhbmFkYSwgVUsgYW5kIGFsbCBvdGhlciBjb3VudHJpZXM/DQoNCg==</div>
 
 
 
