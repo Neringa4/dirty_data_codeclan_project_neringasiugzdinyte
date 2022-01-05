@@ -15,7 +15,9 @@ cake_data <- read_csv(here::here("clean_data/cake_data.csv"))
 Which cake has the most cocoa in it?
 
 ```{r}
-
+cake_data %>%
+  filter(ingredient == "Cocoa") %>% 
+  slice_max(amount, n = 1)
 ```
 
 For sponge cake, how many cups of ingredients are used in total?
