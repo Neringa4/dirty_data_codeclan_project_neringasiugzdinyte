@@ -98,3 +98,10 @@ all_candy_data_fix_country <- all_candy_data_fix_age %>%
     country = str_replace(country, "Sub-Canadian North America... United States of America", "United States of America"))
 
 
+all_candy_data_pivoted <- all_candy_data_fix_country %>% 
+  pivot_longer(x100_grand_bar:peanut_butter_bars,
+               names_to = "candy_name", 
+               values_to = "rating")
+
+
+write_csv(all_candy_data_pivoted, "clean_data/all_candy_data.csv")
