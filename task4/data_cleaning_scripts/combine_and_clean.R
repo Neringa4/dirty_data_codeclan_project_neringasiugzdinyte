@@ -20,3 +20,10 @@ all_candy_data_fix_gender <- all_candy_data_fix_going_out %>%
   mutate(gender = na_if(gender, "I'd rather not say"))
 
 
+all_candy_data_fix_age <- all_candy_data_fix_gender %>% 
+  mutate(age = as.numeric(age),
+         age = if_else(age > 125,
+                       NaN,
+                       age))
+
+
