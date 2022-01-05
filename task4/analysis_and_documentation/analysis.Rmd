@@ -66,10 +66,15 @@ all_candy_data_numeric_rating <- all_candy_data %>%
 ```
 
 
-What was the most popular candy bar by this rating system for each gender in the dataset?
+What was the most popular candy bar by this rating system for each gender 
+in the dataset?
 
 ```{r}
-
+all_candy_data_numeric_rating %>% 
+  filter(!is.na(gender)) %>% 
+  group_by(gender, candy_name) %>% 
+  summarise(rating = sum(rating, na.rm = TRUE)) %>% 
+  slice_max(rating, n = 1)
 ```
 
 What was the most popular candy bar in each year?
