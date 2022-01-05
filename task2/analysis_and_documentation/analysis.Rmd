@@ -29,6 +29,15 @@ cake_data %>%
   summarise(total_amount = sum(amount))
 ```
 
+
 How many ingredients are measured in teaspoons?
+
+```{r}
+cake_data %>% 
+  filter(measure == "teaspoon") %>%
+  distinct(ingredient) %>% 
+  summarise(ingredient_count = n())
+```
+
 Which cake has the most unique ingredients?
 Which ingredients are used only once?
