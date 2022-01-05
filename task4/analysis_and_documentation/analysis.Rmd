@@ -44,7 +44,15 @@ all_candy_data %>%
   slice_max(num_ratings, n = 1)
 ```
 
+
 How many people rated Starburst as despair?
+
+```{r}
+all_candy_data %>% 
+  filter(candy_name == "starburst" & rating == "DESPAIR") %>% 
+  summarise(num_ratings = n())
+```
+
 For the next three questions, count despair as -1, joy as +1 and meh as 0.
 
 What was the most popular candy bar by this rating system for each gender in the dataset?
