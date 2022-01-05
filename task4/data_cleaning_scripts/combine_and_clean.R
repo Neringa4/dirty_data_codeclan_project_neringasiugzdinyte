@@ -8,3 +8,10 @@ all_candy_data <- bind_rows(candy_data_2017,
   select(year, going_out, gender, age, country, everything())
 
 
+all_candy_data_fix_going_out <- all_candy_data %>% 
+  mutate(going_out = if_else(going_out == "Yes",
+                             TRUE,
+                             if_else(going_out == "No",
+                                     FALSE,
+                                     NA)))
+
