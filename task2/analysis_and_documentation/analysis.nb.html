@@ -239,10 +239,20 @@ pre code {
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>For sponge cake, how many cups of ingredients are used in total? How many ingredients are measured in teaspoons? Which cake has the most unique ingredients? Which ingredients are used only once?</p>
+<p>For sponge cake, how many cups of ingredients are used in total?</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY2FrZV9kYXRhICU+JSBcbiAgZmlsdGVyKGNha2UgPT0gXCJTcG9uZ2VcIiAmIG1lYXN1cmUgPT0gXCJjdXBcIikgJT4lIFxuICBzdW1tYXJpc2UodG90YWxfYW1vdW50ID0gc3VtKGFtb3VudCkpXG5gYGAifQ== -->
+<pre class="r"><code>cake_data %&gt;% 
+  filter(cake == &quot;Sponge&quot; &amp; measure == &quot;cup&quot;) %&gt;% 
+  summarise(total_amount = sum(amount))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p>How many ingredients are measured in teaspoons? Which cake has the most unique ingredients? Which ingredients are used only once?</p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KY2FrZV9kYXRhIDwtIHJlYWRfY3N2KGhlcmU6OmhlcmUoImNsZWFuX2RhdGEvY2FrZV9kYXRhLmNzdiIpKQ0KYGBgDQoNCg0KV2hpY2ggY2FrZSBoYXMgdGhlIG1vc3QgY29jb2EgaW4gaXQ/DQoNCmBgYHtyfQ0KY2FrZV9kYXRhICU+JQ0KICBmaWx0ZXIoaW5ncmVkaWVudCA9PSAiQ29jb2EiKSAlPiUgDQogIHNsaWNlX21heChhbW91bnQsIG4gPSAxKQ0KYGBgDQoNCkZvciBzcG9uZ2UgY2FrZSwgaG93IG1hbnkgY3VwcyBvZiBpbmdyZWRpZW50cyBhcmUgdXNlZCBpbiB0b3RhbD8NCkhvdyBtYW55IGluZ3JlZGllbnRzIGFyZSBtZWFzdXJlZCBpbiB0ZWFzcG9vbnM/DQpXaGljaCBjYWtlIGhhcyB0aGUgbW9zdCB1bmlxdWUgaW5ncmVkaWVudHM/DQpXaGljaCBpbmdyZWRpZW50cyBhcmUgdXNlZCBvbmx5IG9uY2U/</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KY2FrZV9kYXRhIDwtIHJlYWRfY3N2KGhlcmU6OmhlcmUoImNsZWFuX2RhdGEvY2FrZV9kYXRhLmNzdiIpKQ0KYGBgDQoNCg0KV2hpY2ggY2FrZSBoYXMgdGhlIG1vc3QgY29jb2EgaW4gaXQ/DQoNCmBgYHtyfQ0KY2FrZV9kYXRhICU+JQ0KICBmaWx0ZXIoaW5ncmVkaWVudCA9PSAiQ29jb2EiKSAlPiUgDQogIHNsaWNlX21heChhbW91bnQsIG4gPSAxKQ0KYGBgDQoNCg0KRm9yIHNwb25nZSBjYWtlLCBob3cgbWFueSBjdXBzIG9mIGluZ3JlZGllbnRzIGFyZSB1c2VkIGluIHRvdGFsPw0KDQpgYGB7cn0NCmNha2VfZGF0YSAlPiUgDQogIGZpbHRlcihjYWtlID09ICJTcG9uZ2UiICYgbWVhc3VyZSA9PSAiY3VwIikgJT4lIA0KICBzdW1tYXJpc2UodG90YWxfYW1vdW50ID0gc3VtKGFtb3VudCkpDQpgYGANCg0KSG93IG1hbnkgaW5ncmVkaWVudHMgYXJlIG1lYXN1cmVkIGluIHRlYXNwb29ucz8NCldoaWNoIGNha2UgaGFzIHRoZSBtb3N0IHVuaXF1ZSBpbmdyZWRpZW50cz8NCldoaWNoIGluZ3JlZGllbnRzIGFyZSB1c2VkIG9ubHkgb25jZT8=</div>
 
 
 

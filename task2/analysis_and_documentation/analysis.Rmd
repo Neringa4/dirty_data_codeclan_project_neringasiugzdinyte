@@ -20,7 +20,15 @@ cake_data %>%
   slice_max(amount, n = 1)
 ```
 
+
 For sponge cake, how many cups of ingredients are used in total?
+
+```{r}
+cake_data %>% 
+  filter(cake == "Sponge" & measure == "cup") %>% 
+  summarise(total_amount = sum(amount))
+```
+
 How many ingredients are measured in teaspoons?
 Which cake has the most unique ingredients?
 Which ingredients are used only once?
