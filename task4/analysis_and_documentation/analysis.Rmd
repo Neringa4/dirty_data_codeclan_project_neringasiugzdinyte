@@ -30,11 +30,23 @@ all_candy_data %>%
   summarise(avg_age = mean(age, na.rm = TRUE))
 ```
 
-For each of joy, despair and meh, which candy bar received the most of these ratings?
+
+For each of joy, despair and meh, which candy bar received the most of 
+these ratings?
+
+```{r}
+all_candy_data %>%
+  filter(!is.na(rating)) %>% 
+  group_by(candy_name, rating) %>% 
+  summarise(num_ratings = n()) %>%
+  ungroup() %>% 
+  group_by(rating) %>% 
+  slice_max(num_ratings, n = 1)
+```
+
 How many people rated Starburst as despair?
 For the next three questions, count despair as -1, joy as +1 and meh as 0.
 
 What was the most popular candy bar by this rating system for each gender in the dataset?
 What was the most popular candy bar in each year?
 What was the most popular candy bar by this rating for people in US, Canada, UK and all other countries?
-
