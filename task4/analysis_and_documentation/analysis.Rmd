@@ -77,5 +77,14 @@ all_candy_data_numeric_rating %>%
   slice_max(rating, n = 1)
 ```
 
+
 What was the most popular candy bar in each year?
+
+```{r}
+all_candy_data_numeric_rating %>% 
+  group_by(year, candy_name) %>% 
+  summarise(rating = sum(rating, na.rm = TRUE)) %>% 
+  slice_max(rating, n = 1)
+```
+
 What was the most popular candy bar by this rating for people in US, Canada, UK and all other countries?
