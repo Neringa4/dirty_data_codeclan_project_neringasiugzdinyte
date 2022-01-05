@@ -8,7 +8,7 @@ library(tidyverse)
 ```
 
 ```{r}
-all_candy_data <- read_csv("clean_data/all_candy_data.csv")
+all_candy_data <- read_csv(here::here("clean_data/all_candy_data.csv"))
 ```
 
 
