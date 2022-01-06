@@ -30,7 +30,7 @@ There was one instance of 2 values being present in one cell, I used
 
 I then joined the code to the main data using `left_join()`.
 
-Finally, I filtered out all NAs from the "amount" column based on my 
+Finally, I filtered out all NAs from the "amount" column due to my 
 assumptions.
 
 ```{r}
