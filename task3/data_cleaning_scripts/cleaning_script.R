@@ -3,11 +3,11 @@ library(tidyverse)
 raw_ship_data <- readxl::read_xls("raw_data/seabirds.xls", sheet = 1)
 raw_bird_data <- readxl::read_xls("raw_data/seabirds.xls", sheet = 2)
 
+
 ship_data <- raw_ship_data %>% 
   janitor::clean_names() %>% 
   select(record_id, lat, long)
 
-names(bird_data)
 
 bird_data <- raw_bird_data %>% 
   janitor::clean_names() %>% 
@@ -18,7 +18,9 @@ bird_data <- raw_bird_data %>%
 
 
 all_data <- bird_data %>% 
-  left_join(ship_data, by = "record_id")
+  left_join(ship_data, by = "record_id") %>% 
+  select(-record_id)
+
 
 write_csv(all_data, "clean_data/bird_data.csv")
 
