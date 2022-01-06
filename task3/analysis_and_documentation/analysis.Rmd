@@ -11,6 +11,7 @@ library(tidyverse)
 bird_data <- read_csv(here::here("clean_data/bird_data.csv"))
 ```
 
+
 Which bird had the most individual sightings?
 
 ```{r}
@@ -22,6 +23,7 @@ bird_data %>%
   ungroup() %>% 
   slice_max(individual_sightings, n = 1)
 ```
+
 
 Which bird had the highest total count?
 
@@ -35,6 +37,19 @@ bird_data %>%
   slice_max(total_count, n = 1)
 ```
 
+
 Which bird had the highest total count above a latitude of -30?
+
+```{r}
+bird_data %>% 
+  filter(lat > -30) %>% 
+  group_by(species_common_name,
+           species_scientific_name,
+           species_abbreviation) %>% 
+  summarise(total_count = n()) %>% 
+  ungroup() %>% 
+  slice_max(total_count, n = 1)
+```
+
 How many different types of birds were only ever seen in groups of 1?
 How many penguins were seen? (Hint: there are many types of penguin)
