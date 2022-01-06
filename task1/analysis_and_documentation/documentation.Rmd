@@ -1,0 +1,64 @@
+---
+title: "Dirty Data Project - Task 1"
+output: html_notebook
+---
+
+# Introduction
+
+The data I have used for this task consists of decathlon scores of 32 different
+athletes from 2 competitions. It includes the scores athletes received for each 
+of the 10 events, their overall points as well as their rank achieved in each
+competition. 
+
+One thing to note:
+
+* This data includes scores of 28 athletes in competition "OlympicG", while 
+for "Decastar" there are only 13.
+
+# Cleaning Process
+
+I used function `clean_names()` from the janitor package to clean column names.
+
+I then moved row names into a column within the tibble, since the row names were
+the names of the athletes, which were needed for analysis. I then capitalised 
+all the athlete names and fixed the name "McMullen".
+
+```{r}
+athlete_names_decathlon <- clean_names_decathlon %>% 
+  rownames_to_column("athlete_name") %>% 
+  mutate(athlete_name = str_to_title(athlete_name)) %>% 
+  mutate(athlete_name = str_replace(athlete_name, "Mcmullen", "McMullen"))
+```
+
+I also chose not to pivot the tibble, because the data set is quite small and 
+I was comfortable performing my analysis without that extra step.
+
+# Analysis Answers
+
+**1. Who had the longest long jump seen in the data?**
+
+Clay was found to have the highest long jump seen in the data, with a score of 
+7.96m. He achieved this in the Olympic Games.
+
+**2. What was the average 100m time in each competition?**
+
+The average 100m time for Decastar was 11.18s, while for the Olympic Games it 
+was 10.92s. 
+
+**3. Who had the highest total points across both competitions?**
+
+Sebrle had the highest total points - 17110.
+
+**4. What was the shot-put scores for the top three competitors in each 
+competition?**
+
+The top competitors in Decastar were Sebrle, Clay and Karpov, scoring 14.83,
+14.26 and 14.77 respectively. The top competitors in the Olympic games were 
+the same, although Sebrle scored 16.36, Clay 15.23 and Karpov 15.93.
+
+**5. What was the average points for competitors who ran the 400m in less than 
+50 seconds vs. those than ran 400m in more than 50 seconds?**
+
+The competitors who ran the 400m in less than 50 seconds, scored an average of
+8120 points, while those who took longer than 50 seconds, scored an average of 
+7727 points.
