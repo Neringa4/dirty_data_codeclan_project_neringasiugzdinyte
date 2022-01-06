@@ -61,4 +61,3 @@ decathlon_data %>%
   group_by(time_400m) %>% 
   summarise(avg_points = mean(points))
 ```
-
