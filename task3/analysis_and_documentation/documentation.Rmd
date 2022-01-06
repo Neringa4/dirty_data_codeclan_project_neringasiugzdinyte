@@ -1,0 +1,69 @@
+---
+title: "Dirty Data Project Task 3"
+output: html_notebook
+---
+
+# Introduction
+
+The data used in this task comes from 2 data sets - bird data and ship data.
+
+The bird data contains information about individual sightings of birds, for
+example, the species name, age, sex, count, etc.
+
+The ship data contains information about location, sea, weather conditions, etc.
+
+# Cleaning Process
+
+For each data set, I cleaned the column names and then selected only the columns
+that are needed for analysis. 
+
+```{r}
+ship_data <- raw_ship_data %>% 
+  janitor::clean_names() %>% 
+  select(record_id, lat, long)
+```
+
+I also removed the data where no bird sightings were recorded, as I am only 
+interested in the sightings.
+
+```{r}
+bird_data <- raw_bird_data %>% 
+  janitor::clean_names() %>% 
+  rename_with(str_remove, pattern = "_taxon_age_sex_plumage_phase") %>% 
+  select(record_id, species_common_name, species_scientific_name, 
+         species_abbreviation, count) %>% 
+  filter(species_common_name != "[NO BIRDS RECORDED]")
+```
+
+Finally, I used `left_join()` to join the 2 data sets together and unselected 
+the column record_id. 
+
+```{r}
+all_data <- bird_data %>% 
+  left_join(ship_data, by = "record_id") %>% 
+  select(-record_id)
+```
+
+# Analysis Answers
+
+**1. Which bird had the most individual sightings?**
+
+The "Wandering albatross sensu lato PL2, *Diomedea antipodensis / exulans PL2*, 
+DIOANTEXU PL2" had the most individual sightings - 3104.
+
+**2. Which bird had the highest total count?**
+
+The "Short-tailed shearwater, *Puffinus tenuirostris*, PUFTEN" had the highest 
+total count - 982,553.
+
+**3. Which bird had the highest total count above a latitude of -30?**
+
+Wedge-tailed shearwater, *Puffinus pacificus*, PUFPAC - 29
+
+**4. How many different types of birds were only ever seen in groups of 1?**
+
+There were 73 types of birds that were ever observed in groups of 1
+
+**5. How many penguins were seen? (Hint: there are many types of penguin)**
+
+There were 154 penguins seen in total.
