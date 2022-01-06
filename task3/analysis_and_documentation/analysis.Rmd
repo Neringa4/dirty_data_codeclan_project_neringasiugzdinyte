@@ -1,0 +1,18 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+bird_data <- read_csv(here::here("clean_data/bird_data.csv"))
+```
+
+Which bird had the most individual sightings?
+Which bird had the highest total count?
+Which bird had the highest total count above a latitude of -30?
+How many different types of birds were only ever seen in groups of 1?
+How many penguins were seen? (Hint: there are many types of penguin)
