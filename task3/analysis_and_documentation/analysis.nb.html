@@ -287,16 +287,6 @@ pre code {
   ungroup() %&gt;% 
   summarise(num_birds = n())</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ3NwZWNpZXNfY29tbW9uX25hbWUnLCAnc3BlY2llc19zY2llbnRpZmljX25hbWUnLiBZb3UgY2FuIG92ZXJyaWRlIHVzaW5nIHRoZSBgLmdyb3Vwc2AgYXJndW1lbnQuXG4ifQ== -->
-<pre><code>`summarise()` has grouped output by &#39;species_common_name&#39;, &#39;species_scientific_name&#39;. You can override using the `.groups` argument.</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggMSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVB5d3JDTUJEY3BnOXB3UWY0SFMyb2lCK2dIeUFlcERlSmJkUmlUU1JOMGFOZmJ0MlVCR3B5eU80T003TTdoMTIrU3ZJRUFId0lQQUoraUMxRTIvMWl1VjRDQkFRbkR3S0lkWDBqYTk0REFHTlRqdzRwNVBUQkdteG1BekRtN2VOMHJtVFpPT3hZaWxkbUZkcVNmUERyOExtMlJVMGIxellwcWFMWlJhSWVwNjhqR1ltbnFnUkhFZEZIaDQ3WWt3NHdiYm0rcEV5TFc4dnY2VVl2TUNGaEVOajc3L1ZLMGhtcjBGaEZqRjhyenV6dE5UMnoyZ3dUVE53SHpwNnk0c29tUWJUSmxGRFU4cEpDMUJicHM4SDNCK1I5VmpTc0FRQUEifQ== -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["num_birds"],"name":[1],"type":["int"],"align":["right"]}],"data":[{"1":"86"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>How many penguins were seen? (Hint: there are many types of penguin)</p>
@@ -307,13 +297,6 @@ pre code {
   filter(str_detect(species_common_name, &quot;penguin&quot;)) %&gt;% 
   summarise(total_count = sum(count, na.rm = TRUE))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-frame-begin eyJtZXRhZGF0YSI6eyJjbGFzc2VzIjpbInRibF9kZiIsInRibCIsImRhdGEuZnJhbWUiXSwibnJvdyI6MSwibmNvbCI6MSwic3VtbWFyeSI6eyJBIHRpYmJsZSI6WyIxIHggMSJdfX0sInJkZiI6Ikg0c0lBQUFBQUFBQUJsMVEyd3JDTUF4TnUwM1p4QXY0SFE2Y0NENEsrZ0hpazI5UzY5UmhiY2ZXb1k5K3VacldEclNGTk1raEo4bkpkcjJiSmJzRUFBSUlDWVVnd2hBNnE4MDBtMmNBSWNXTVFBaXg4UStzR2xzQVlHRDhraS9oKy80S0k4bHVlWTNCNkFmc2FhV1oySFBWU08zVng1VzZweTJuajBhZitMM3grWTI1WUxYZk9Ea3l6ZEpUaFh6TVhoNmxxMHBkS0lra2FsYVBQREtwUEdEWVNMUEpjY0l2amJ4T0ZtYUFrd3h1TytMc0p6WWo2ZHUxaWx5clRpN1BoY3piM1FVNzVNSWxBMVJzQmFkbFZlQTluQkpFNjlUZXFVVzRFaTFpdGNIckF5ek5SazZ5QVFBQSJ9 -->
-<div data-pagedtable="false">
-<script data-pagedtable-source type="application/json">
-{"columns":[{"label":["total_count"],"name":[1],"type":["dbl"],"align":["right"]}],"data":[{"1":"154"}],"options":{"columns":{"min":{},"max":[10],"total":[1]},"rows":{"min":[10],"max":[10],"total":[1]},"pages":{}}}
-  </script>
-</div>
-<!-- rnb-frame-end -->
 <!-- rnb-chunk-end -->
 
 <div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpgYGB7cn0NCmxpYnJhcnkodGlkeXZlcnNlKQ0KYGBgDQoNCmBgYHtyfQ0KYmlyZF9kYXRhIDwtIHJlYWRfY3N2KGhlcmU6OmhlcmUoImNsZWFuX2RhdGEvYmlyZF9kYXRhLmNzdiIpKQ0KYGBgDQoNCg0KV2hpY2ggYmlyZCBoYWQgdGhlIG1vc3QgaW5kaXZpZHVhbCBzaWdodGluZ3M/DQoNCmBgYHtyfQ0KYmlyZF9kYXRhICU+JSANCiAgZ3JvdXBfYnkoc3BlY2llc19jb21tb25fbmFtZSwgDQogICAgICAgICAgIHNwZWNpZXNfc2NpZW50aWZpY19uYW1lLCANCiAgICAgICAgICAgc3BlY2llc19hYmJyZXZpYXRpb24pICU+JSANCiAgc3VtbWFyaXNlKGluZGl2aWR1YWxfc2lnaHRpbmdzID0gbigpKSAlPiUgDQogIHVuZ3JvdXAoKSAlPiUgDQogIHNsaWNlX21heChpbmRpdmlkdWFsX3NpZ2h0aW5ncywgbiA9IDEpDQpgYGANCg0KDQpXaGljaCBiaXJkIGhhZCB0aGUgaGlnaGVzdCB0b3RhbCBjb3VudD8NCg0KYGBge3J9DQpiaXJkX2RhdGEgJT4lIA0KICBncm91cF9ieShzcGVjaWVzX2NvbW1vbl9uYW1lLA0KICAgICAgICAgICBzcGVjaWVzX3NjaWVudGlmaWNfbmFtZSwNCiAgICAgICAgICAgc3BlY2llc19hYmJyZXZpYXRpb24pICU+JSANCiAgc3VtbWFyaXNlKHRvdGFsX2NvdW50ID0gc3VtKGNvdW50LCBuYS5ybSA9IFRSVUUpKSAlPiUgDQogIHVuZ3JvdXAoKSAlPiUgDQogIHNsaWNlX21heCh0b3RhbF9jb3VudCwgbiA9IDEpDQpgYGANCg0KDQpXaGljaCBiaXJkIGhhZCB0aGUgaGlnaGVzdCB0b3RhbCBjb3VudCBhYm92ZSBhIGxhdGl0dWRlIG9mIC0zMD8NCg0KYGBge3J9DQpiaXJkX2RhdGEgJT4lIA0KICBmaWx0ZXIobGF0ID4gLTMwKSAlPiUgDQogIGdyb3VwX2J5KHNwZWNpZXNfY29tbW9uX25hbWUsDQogICAgICAgICAgIHNwZWNpZXNfc2NpZW50aWZpY19uYW1lLA0KICAgICAgICAgICBzcGVjaWVzX2FiYnJldmlhdGlvbikgJT4lIA0KICBzdW1tYXJpc2UodG90YWxfY291bnQgPSBuKCkpICU+JSANCiAgdW5ncm91cCgpICU+JSANCiAgc2xpY2VfbWF4KHRvdGFsX2NvdW50LCBuID0gMSkNCmBgYA0KDQoNCkhvdyBtYW55IGRpZmZlcmVudCB0eXBlcyBvZiBiaXJkcyB3ZXJlIG9ubHkgZXZlciBzZWVuIGluIGdyb3VwcyBvZiAxPw0KDQpgYGB7cn0NCmJpcmRfZGF0YSAlPiUNCiAgZmlsdGVyKCFpcy5uYShjb3VudCkpICU+JSANCiAgZ3JvdXBfYnkoc3BlY2llc19jb21tb25fbmFtZSwNCiAgICAgICAgICAgc3BlY2llc19zY2llbnRpZmljX25hbWUsDQogICAgICAgICAgIHNwZWNpZXNfYWJicmV2aWF0aW9uKSAlPiUgDQogIG11dGF0ZShzZWVuX29uY2VfdGVzdCA9IGlmX2Vsc2UoY291bnQgIT0gMSwgTkFfcmVhbF8sIGNvdW50KSkgJT4lIA0KICBzdW1tYXJpc2UoY291bnQgPSBzdW0oc2Vlbl9vbmNlX3Rlc3QpKSAlPiUgDQogIGZpbHRlcighaXMubmEoY291bnQpKSAlPiUgDQogIHVuZ3JvdXAoKSAlPiUgDQogIHN1bW1hcmlzZShudW1fYmlyZHMgPSBuKCkpDQpgYGANCg0KDQpIb3cgbWFueSBwZW5ndWlucyB3ZXJlIHNlZW4/IChIaW50OiB0aGVyZSBhcmUgbWFueSB0eXBlcyBvZiBwZW5ndWluKQ0KDQpgYGB7cn0NCmJpcmRfZGF0YSAlPiUgDQogIGZpbHRlcihzdHJfZGV0ZWN0KHNwZWNpZXNfY29tbW9uX25hbWUsICJwZW5ndWluIikpICU+JSANCiAgc3VtbWFyaXNlKHRvdGFsX2NvdW50ID0gc3VtKGNvdW50LCBuYS5ybSA9IFRSVUUpKQ0KYGBgDQo=</div>
