@@ -7,7 +7,7 @@ output: html_notebook
 
 The data I have used for this task consists of decathlon scores of 32 different
 athletes from 2 competitions. It includes the scores athletes received for each 
-of the 10 events, their overall points as well as their rank achieved in each
+of the 10 events, their overall points, as well as their rank achieved in each
 competition. 
 
 One thing to note:
