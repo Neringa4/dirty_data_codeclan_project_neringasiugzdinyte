@@ -1,0 +1,112 @@
+---
+title: "Dirty Data Project - Task 4"
+output: html_notebook
+---
+
+# Introduction
+
+For this task, I have used 3 data sets on halloween candy ratings, gathered 
+using a survey. 
+
+Each data set includes answers to a set of personal questions,
+such as age, gender, country etc. The next part of the survey asks people to 
+rate halloween candy, using ratings "JOY", "MEH" and "DESPAIR". Lastly there are 
+a final set of columns with additional comments, ratings etc.
+
+The 3 data sets represent candy ratings from 3 different years - 2015, 2016
+and 2017.
+
+A few things to note:
+
+* There are types of candy that do not appear in every data set.
+
+* 2015 data does not include gender or location.
+
+# Assumptions
+
+Age cannot be higher than 125 years.
+
+# Cleaning Process
+
+The first thing I did was clean column names using the janitor package. Then, I 
+dropped the columns at the end of each data set that included extra comments and
+unrelated ratings and questions.
+
+I then removed all columns from the data that I did not need for my analysis.
+These included the columns timestamp and state/province, as well as things such 
+as medicine, money, DVDs and other foods that are not candy.
+
+I added a year column for each of the data sets, so as to not lose that data 
+once combined.
+
+I joined the data sets using `bind_rows()` and then cleaned up columns gender,
+age and country.
+
+```{r}
+all_candy_data_fix_gender <- all_candy_data_fix_going_out %>% 
+  mutate(gender = na_if(gender, "I'd rather not say"))
+```
+
+```{r}
+all_candy_data_fix_age <- all_candy_data_fix_gender %>% 
+  mutate(age = as.numeric(age),
+         age = if_else(age > 125,
+                       NaN,
+                       age))
+```
+
+For the country column, I used `case_when()` to turn all invalid answers to NAs
+and `str_replace()` to fix typos etc.
+
+Finally, I pivoted the tibble into a long format. 
+
+```{r}
+all_candy_data_pivoted <- all_candy_data_fix_country %>% 
+  pivot_longer(x100_grand_bar:peanut_butter_bars,
+               names_to = "candy_name", 
+               values_to = "rating")
+```
+
+# Analysis Answers
+
+**1. What is the total number of candy ratings given across the three years. 
+(number of candy ratings, not number of raters. Don’t count missing values)**
+
+The total number of ratings is 605,174.
+
+**2. What was the average age of people who are going out trick or treating and 
+the average age of people not going trick or treating?**
+
+The average age of people that are going out is 35 and the average age of people 
+not going trick or treating is 39.
+
+***3. For each of joy, despair and meh, which candy bar received the most of 
+these ratings?**
+
+The candy that received the most "joy" (7589) is "Any full sized candy bar". 
+Most "meh" (1570) went to Lollipops and most "despair" (7341) to 
+"Gum from baseball cards". 
+
+**4. How many people rated Starburst as despair?**
+
+A total of 1990 people rated Starburst as "despair".
+
+**For the next three questions, count despair as -1, joy as +1 and meh as 0.**
+
+**5. What was the most popular candy bar by this rating system for each gender 
+in the dataset?**
+
+"Any full sized candy bar" was the most popular among everyone - males, females 
+and other.
+
+**6. What was the most popular candy bar in each year?**
+
+Every year "Any full sized candy bar" was the most popular.
+
+**7. What was the most popular candy bar by this rating for people in US, 
+Canada, UK and all other countries?**
+
+The most popular candy in USA, Canada and other countries was "Any full sized 
+candy bar". In the Uk however, there was a four-way tie between "Any full sized
+candy bar", Lindt truffle, Rolos and Toblerone.
+
