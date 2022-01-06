@@ -1,0 +1,68 @@
+---
+title: "Dirty Data Project - Task 2"
+output: html_notebook
+---
+
+# Introduction 
+
+The data used in this task consists of 18 different cakes and the amount of
+ingredients used for each cake. There is also a data set containing the 
+long form of all the ingredient names, as well as the measurement type for each
+ingredient.
+
+# Assumptions
+
+I assumed that all missing values represent ingredients that are not used in
+a cake, and there are no missing values for ingredients that are present.
+
+# Cleaning Process
+
+I cleaned the column names and pivoted the tibble for a more clear layout. 
+
+```{r}
+cake_data_pivoted <- raw_cake_data %>% 
+  rename("cake" = "Cake") %>% 
+  pivot_longer(-cake, names_to = "ingredients_code", values_to = "amount")
+```
+
+There was one instance of 2 values being present in one cell, I used 
+`str_replace()` and `coalesce()` to move the information to the correct column.
+
+I then joined the code to the main data using `left_join()`.
+
+Finally, I filtered out all NAs from the "amount" column based on my 
+assumptions.
+
+```{r}
+# I dropped the ingredient code column and removed NAs, because I am only 
+# interested in ingredients that are used for each cake.
+clean_cake_data <- cake_data_joined %>% 
+  select(cake, ingredient, amount, measure) %>% 
+  filter(!is.na(amount))
+```
+
+# Analysis Answers
+
+**1. Which cake has the most cocoa in it?**
+
+One Bowl Chocolate cake has the most cocoa in it - 10 tablespoons. 
+
+**2. For sponge cake, how many cups of ingredients are used in total?**
+
+In total, 3.5 cups of ingredients are used for sponge cake. 
+
+**3. How many ingredients are measured in teaspoons?**
+
+There are a total of 8 ingredients in this data set that are measured in 
+teaspoons.
+
+**4. Which cake has the most unique ingredients?**
+
+There are 2 cakes, "Babas au Rhum" and "One Bowl Chocolate" that both use 11 
+unique ingredients, which is the most in this data set.
+
+**5. Which ingredients are used only once?**
+
+There are 8 ingredients that are used only once. They are: Bananas, 
+Cream of tartar, Crushed Ice, Dried currants, Egg white, Nutmeg, Nuts and
+Zwiebach.
