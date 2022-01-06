@@ -51,5 +51,23 @@ bird_data %>%
   slice_max(total_count, n = 1)
 ```
 
+
 How many different types of birds were only ever seen in groups of 1?
+
+```{r}
+bird_data %>%
+  group_by(species_common_name,
+           species_scientific_name,
+           species_abbreviation) %>% 
+  mutate(seen_once_test = if_else(count != 1, NA_real_, count)) %>% 
+  summarise(count = sum(seen_once_test)) %>% 
+  filter(!is.na(count)) %>% 
+  ungroup() %>% 
+  summarise(num_birds = n())
+```
+
+```{r}
+
+```
+
 How many penguins were seen? (Hint: there are many types of penguin)
