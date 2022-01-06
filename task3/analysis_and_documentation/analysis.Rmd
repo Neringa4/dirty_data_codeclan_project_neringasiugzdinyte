@@ -66,8 +66,12 @@ bird_data %>%
   summarise(num_birds = n())
 ```
 
-```{r}
-
-```
 
 How many penguins were seen? (Hint: there are many types of penguin)
+
+```{r}
+bird_data %>% 
+  filter(str_detect(species_common_name, "penguin")) %>% 
+  summarise(total_count = sum(count, na.rm = TRUE))
+```
+
