@@ -46,7 +46,7 @@ bird_data %>%
   group_by(species_common_name,
            species_scientific_name,
            species_abbreviation) %>% 
-  summarise(total_count = n()) %>% 
+  summarise(total_count = sum(count, na.rm = TRUE)) %>% 
   ungroup() %>% 
   slice_max(total_count, n = 1)
 ```
