@@ -6,6 +6,11 @@ raw_candy_data_2016 <- readxl::read_xlsx("raw_data/boing-boing-candy-2016.xlsx")
 raw_candy_data_2017 <- readxl::read_xlsx("raw_data/boing-boing-candy-2017.xlsx")
 
 
+
+# For each data set, I cleaned the column names and removed all the columns that
+# were not needed for analysis. Then I added a column for "year" so that this
+# information is not lost during binding.
+
 candy_data_2015 <- raw_candy_data_2015 %>% 
   janitor::clean_names() %>% 
   select(-(97:124)) %>% 
@@ -34,6 +39,7 @@ candy_data_2015 <- raw_candy_data_2015 %>%
          ) %>% 
   mutate(year = 2015)
   
+
 
 candy_data_2016 <- raw_candy_data_2016 %>% 
   janitor::clean_names() %>% 
@@ -72,6 +78,7 @@ candy_data_2016 <- raw_candy_data_2016 %>%
   mutate(year = 2016)
 
 
+
 candy_data_2017 <- raw_candy_data_2017 %>% 
   janitor::clean_names() %>% 
   rename_with(str_remove, pattern = "q[0-9]+_") %>% 
@@ -108,11 +115,15 @@ candy_data_2017 <- raw_candy_data_2017 %>%
   mutate(year = 2017)
 
 
+
 all_candy_data <- bind_rows(candy_data_2017, 
                             candy_data_2016, 
                             candy_data_2015) %>% 
   select(year, going_out, gender, age, country, everything())
 
+
+
+# I turned going_out column to logical 
 
 all_candy_data_fix_going_out <- all_candy_data %>% 
   mutate(going_out = if_else(going_out == "Yes",
@@ -122,9 +133,13 @@ all_candy_data_fix_going_out <- all_candy_data %>%
                                      NA)))
 
 
+
 all_candy_data_fix_gender <- all_candy_data_fix_going_out %>% 
   mutate(gender = na_if(gender, "I'd rather not say"))
 
+
+
+# I put an upper limit on age, since there were many invalid entries.
 
 all_candy_data_fix_age <- all_candy_data_fix_gender %>% 
   mutate(age = as.numeric(age),
@@ -132,6 +147,9 @@ all_candy_data_fix_age <- all_candy_data_fix_gender %>%
                        NaN,
                        age))
 
+
+
+# I turned all invalid country entries with NAs and then fixed typos.
 
 all_candy_data_fix_country <- all_candy_data_fix_age %>% 
   mutate(country = str_to_title(country)) %>% 
@@ -204,10 +222,14 @@ all_candy_data_fix_country <- all_candy_data_fix_age %>%
     country = str_replace(country, "Sub-Canadian North America... United States of America", "United States of America"))
 
 
+
+# I pivoted the tibble for easier analysis
+
 all_candy_data_pivoted <- all_candy_data_fix_country %>% 
   pivot_longer(x100_grand_bar:peanut_butter_bars,
                names_to = "candy_name", 
                values_to = "rating")
+
 
 
 write_csv(all_candy_data_pivoted, "clean_data/all_candy_data.csv")
