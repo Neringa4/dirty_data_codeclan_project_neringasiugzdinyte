@@ -1,7 +1,7 @@
 library(tidyverse)
 
-raw_cake_data <- read_csv("raw_data/cake-ingredients-1961.csv")
-raw_ingredient_code <- read_csv("raw_data/cake_ingredient_code.csv")
+raw_cake_data <- read_csv(here::here("raw_data/cake-ingredients-1961.csv"))
+raw_ingredient_code <- read_csv(here::here("raw_data/cake_ingredient_code.csv"))
 
 
 # Cleaned the column names and pivoted the tibble for easier analysis
@@ -16,6 +16,7 @@ cake_data_pivoted <- raw_cake_data %>%
 ingredient_code <- raw_ingredient_code %>% 
   mutate(ingredient = str_replace(ingredient, "Sour cream cup", "Sour cream"),
          measure = coalesce(measure, "cup"))
+
 
 # Joined the ingredient code to the data, to see full ingredient names and the 
 # type of measurement used for each.
