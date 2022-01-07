@@ -1,7 +1,7 @@
 library(tidyverse)
 
 
-raw_decathlon_data <- read_rds("raw_data/decathlon.rds")
+raw_decathlon_data <- read_rds(here::here("raw_data/decathlon.rds"))
 
 
 
