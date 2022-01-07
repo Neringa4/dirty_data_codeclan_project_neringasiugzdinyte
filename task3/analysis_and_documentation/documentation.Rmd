@@ -58,7 +58,7 @@ total count - 982,553.
 
 **3. Which bird had the highest total count above a latitude of -30?**
 
-Wedge-tailed shearwater, *Puffinus pacificus*, PUFPAC - 29
+Wedge-tailed shearwater, *Puffinus pacificus*, PUFPAC - 855.
 
 **4. How many different types of birds were only ever seen in groups of 1?**
 
