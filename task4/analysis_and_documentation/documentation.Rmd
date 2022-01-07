@@ -5,12 +5,12 @@ output: html_notebook
 
 # Introduction
 
-For this task, I have used 3 data sets on halloween candy ratings, gathered 
+For this task, I have used 3 data sets on Halloween candy ratings, gathered 
 using a survey. 
 
 Each data set includes answers to a set of personal questions,
 such as age, gender, country etc. The next part of the survey asks people to 
-rate halloween candy, using ratings "JOY", "MEH" and "DESPAIR". Lastly there are 
+rate Halloween candy, using ratings "JOY", "MEH" and "DESPAIR". Lastly there are 
 a final set of columns with additional comments, ratings etc.
 
 The 3 data sets represent candy ratings from 3 different years - 2015, 2016
